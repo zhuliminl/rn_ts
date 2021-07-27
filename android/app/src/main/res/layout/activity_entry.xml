@@ -24,4 +24,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.178" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_entry_2"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="36dp"
+        android:elevation="0dp"
+        android:text="启动 RN2"
+        android:textColor="#555555"
+        android:translationZ="0dp"
+        app:backgroundTint="#FFFFFF"
+        app:cornerRadius="2dp"
+        app:layout_constraintEnd_toEndOf="@+id/button_entry_1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/button_entry_1"
+        app:layout_constraintTop_toBottomOf="@+id/button_entry_1"
+        app:strokeColor="#EEE" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,6 +29,15 @@ public class EntryActivity extends AppCompatActivity {
             }
         });
 
+        Button button_entry_2 = (Button) findViewById(R.id.button_entry_2);
+        button_entry_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(EntryActivity.this, SubRnActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
 
     }
