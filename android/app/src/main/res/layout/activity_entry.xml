@@ -8,6 +8,7 @@
 
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_entry_1"
         android:elevation="0dp"
         android:translationZ="0dp"
         android:layout_width="180dp"

@@ -3,8 +3,11 @@ package com.rn_ts;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 
 public class EntryActivity extends AppCompatActivity {
@@ -16,5 +19,17 @@ public class EntryActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: ");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entry);
+
+        Button button_entry_1 = (Button) findViewById(R.id.button_entry_1);
+        button_entry_1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(EntryActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
     }
 }

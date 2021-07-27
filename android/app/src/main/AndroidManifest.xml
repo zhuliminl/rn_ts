@@ -23,6 +23,13 @@
             </intent-filter>
 
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+            android:label="RN_1"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize">
+        </activity>
         <!--
         <activity
             android:name=".MainActivity"
