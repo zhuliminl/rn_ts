@@ -10,6 +10,10 @@ import {
 } from 'react-native';
 
 const App = () => {
+  useEffect(() => {
+    console.log('saul global', global.ezData);
+  }, []);
+
   return (
     <SafeAreaView style={{}}>
       <View>

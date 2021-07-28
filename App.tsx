@@ -56,11 +56,18 @@ const Section: React.FC<{
   );
 };
 
+declare global {
+  var ezData: any;
+}
+
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
   console.log('saul bbbbbbbbb');
   useEffect(() => {
     console.log('saul ENTRY_APP');
+
+    global.ezData = {name: 'saul'};
+
     return () => {
       console.log('saul LEAVE_APP');
     };
