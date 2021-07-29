@@ -25,6 +25,7 @@ public class EntryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(EntryActivity.this, MainActivity.class);
+                intent.putExtra("appInitData", "xiaoshtou");
                 startActivity(intent);
             }
         });
@@ -34,6 +35,7 @@ public class EntryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(EntryActivity.this, SubRnActivity.class);
+                intent.putExtra("activity", "subRn");
                 startActivity(intent);
             }
         });

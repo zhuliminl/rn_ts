@@ -1,5 +1,7 @@
 package com.rn_ts;
 
+import android.os.Bundle;
+
 import com.facebook.react.ReactActivity;
 import com.rn_ts.RN.RnActivity;
 
@@ -12,5 +14,11 @@ public class SubRnActivity extends RnActivity {
   @Override
   protected String getMainComponentName() {
     return "rn_sub_1";
+  }
+
+
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
   }
 }

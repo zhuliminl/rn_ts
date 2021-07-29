@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useEffect} from 'react';
 import {
   SafeAreaView,
@@ -7,11 +8,13 @@ import {
   Text,
   useColorScheme,
   View,
+  TouchableOpacity,
+  AppRegistry,
 } from 'react-native';
 
-const App = () => {
+const App = (props) => {
   useEffect(() => {
-    console.log('saul global', global.ezData);
+    // console.log('saul global', global.ezData);
   }, []);
 
   return (
@@ -19,6 +22,16 @@ const App = () => {
       <View>
         <Text>子RN</Text>
       </View>
+      <TouchableOpacity
+        onPress={() => {
+        }}
+        style={{
+          height: 50,
+          width: 100,
+          backgroundColor: '#999',
+        }}>
+        <Text>跳转到主 RN</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };
