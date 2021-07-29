@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -15,8 +16,10 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  TouchableOpacity,
   useColorScheme,
   View,
+  AppRegistry,
 } from 'react-native';
 
 import {
@@ -89,8 +92,17 @@ const App = () => {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.js</Text> to change this
-            screen and then come back to see your edits.
+            <TouchableOpacity
+              onPress={() => {
+                AppRegistry.runApplication('rn_sub_1', {rootTag: 999});
+              }}
+              style={{
+                height: 50,
+                width: '100%',
+                backgroundColor: '#999',
+              }}>
+              <Text>打开另外一个 RN </Text>
+            </TouchableOpacity>
           </Section>
           <Section title="See Your Changes">
             <ReloadInstructions />
