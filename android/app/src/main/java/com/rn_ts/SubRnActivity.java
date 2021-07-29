@@ -1,8 +1,9 @@
 package com.rn_ts;
 
 import com.facebook.react.ReactActivity;
+import com.rn_ts.RN.RnActivity;
 
-public class SubRnActivity extends ReactActivity {
+public class SubRnActivity extends RnActivity {
 
   /**
    * Returns the name of the main component registered from JavaScript. This is used to schedule
