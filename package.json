@@ -10,9 +10,11 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "bundle-android": "npx react-native bundle --entry-file index.js --platform android --dev false --bundle-output  ../tmp/android/bundle.android.js --assets-dest ../tmp/android",
     "bundle-ios": "npx react-native bundle --entry-file index.js --platform ios --dev false --bundle-output  ../tmp/ios/bundle.ios.js --assets-dest ../tmp/ios",
-    "bundle": "yarn bundle-android && yarn bundle-ios"
+    "bundle": "yarn bundle-android && yarn bundle-ios",
+    "publish": "node publish.js"
   },
   "dependencies": {
+    "form-data": "^3.0.1",
     "react": "17.0.1",
     "react-native": "0.64.1"
   },
