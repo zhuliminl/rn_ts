@@ -11,11 +11,7 @@
     "bundle-android": "npx react-native bundle --entry-file index.js --platform android --dev false --bundle-output  ../tmp/android/bundle.android.js --assets-dest ../tmp/android",
     "bundle-ios": "npx react-native bundle --entry-file index.js --platform ios --dev false --bundle-output  ../tmp/ios/bundle.ios.js --assets-dest ../tmp/ios",
     "bundle": "yarn bundle-android && yarn bundle-ios",
-<<<<<<< HEAD
     "publish-biz": "node publish.js"
-=======
-    "publish": "node publish.js"
->>>>>>> 29de96db323aabfb205c7856d51ed979d48326be
   },
   "dependencies": {
     "form-data": "^3.0.1",
