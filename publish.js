@@ -2,7 +2,11 @@
 /* eslint-disable semi */
 // 发布包
 const fs = require('fs');
+const _colors = require('colors');
 const request = require('request')
+const cliProgress = require('cli-progress');
+
+
 
 
 const workSpace = {
@@ -31,6 +35,15 @@ const pushBundleToServer = (bundle = {}) => {
     // 其他附属数据，如果需要
   }
 
+
+  const bar = new cliProgress.SingleBar({
+    format: '正在上传 |' + _colors.green('{bar}') + '| {percentage}% || {value}/{total} 上传进度 || Speed: {speed}',
+    barCompleteChar: '\u2588',
+    barIncompleteChar: '\u2591',
+    hideCursor: true,
+  }, cliProgress.Presets.shades_classic);
+  bar.start(100, 0, { speed: "N/A" });
+
   const r = request.post({
     url: bundle.uploadUrl,
     formData,
@@ -39,6 +52,7 @@ const pushBundleToServer = (bundle = {}) => {
       console.log('saul ######## 上传失败', err)
     }
 
+    bar.stop()
     console.log('statusCode:', response && response.statusCode)
     console.log('saul body', body)
     clearInterval(q)
@@ -46,9 +60,8 @@ const pushBundleToServer = (bundle = {}) => {
 
   var q = setInterval(function () {
     var dispatched = r.req.connection._bytesDispatched
-    let percent = dispatched * 100 / size
-    console.dir("saul Uploaded: " + percent + "%")
-
+    let percent = parseInt((dispatched * 100 / size), 10)
+    bar.update(percent)
   }, 10);
 }
 
