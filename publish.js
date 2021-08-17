@@ -14,7 +14,7 @@ const workSpace = {
   author: 'xiaoshitou',
   // token 永久有效
   token: 'token_skjrlkeuwrojkhrerlsdfghjmbvcx',
-  bundleBuildPath: './../tmp.zip',
+  bundleBuildPath: './../tmp2.zip',
   uploadUrl: 'http://192.168.3.27:3000/rn/bundleUpload',
 };
 
