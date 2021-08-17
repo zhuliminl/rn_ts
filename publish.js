@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable semi */
 // 发布包
-const FormData = require('form-data');
 const fs = require('fs');
+const request = require('request')
 
 
 const workSpace = {
@@ -11,8 +11,7 @@ const workSpace = {
   // token 永久有效
   token: 'token_skjrlkeuwrojkhrerlsdfghjmbvcx',
   bundleBuildPath: './../tmp.zip',
-  serverHost: 'localhost',
-  serverPort: 3000,
+  uploadUrl: 'http://192.168.3.27:3000/rn/bundleUpload',
 };
 
 // 一个 workSpace 对应多个 bundle
@@ -23,34 +22,34 @@ const bundleInfo = {
 };
 
 const pushBundleToServer = (bundle = {}) => {
-  const options = {
-    hostname: bundle.serverHost,
-    port: bundle.serverPort,
-    path: '/rn/bundleUpload',
-    method: 'POST',
+  const path = bundle.bundleBuildPath || ''
+  let size = fs.lstatSync(path).size
+
+  const formData = {
+    bundle: fs.createReadStream(path),
+    ...bundle,
+    // 其他附属数据，如果需要
   }
 
+  const r = request.post({
+    url: bundle.uploadUrl,
+    formData,
+  }, (err, response, body) => {
+    if (err) {
+      console.log('saul ######## 上传失败', err)
+    }
 
-  const form = new FormData();
-  form.append('bundle', fs.createReadStream(bundle.bundleBuildPath));
-  form.append('version', new Date().getTime());
-  Object.keys(bundle).forEach(key => {
-    form.append(key, bundle[key] || '')
+    console.log('statusCode:', response && response.statusCode)
+    console.log('saul body', body)
+    clearInterval(q)
   })
 
-  form.submit(options, (err, res) => {
-    res.setEncoding('utf8')
-    res.on('data', (chunk) => {
-      console.log('saul EEEE', chunk)
-    })
-    res.on('end', () => {
-    })
+  var q = setInterval(function () {
+    var dispatched = r.req.connection._bytesDispatched
+    let percent = dispatched * 100 / size
+    console.dir("saul Uploaded: " + percent + "%")
 
-  res.on('progress', (bytesReceived, bytesExpected) => {
-    console.log('saul ######## 进度', bytesReceived, bytesExpected)
-  });
-  })
-
+  }, 10);
 }
 
 const main = () => {
