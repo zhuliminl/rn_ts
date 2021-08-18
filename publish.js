@@ -13,9 +13,10 @@ const workSpace = {
   appKey: 'rn_ts',
   author: 'xiaoshitou',
   // token 永久有效
-  token: 'token_skjrlkeuwrojkhrerlsdfghjmbvcx',
-  bundleBuildPath: './../tmp2.zip',
-  uploadUrl: 'http://192.168.3.27:3000/rn/bundleUpload',
+  token: 'token',
+  bundleBuildPath: './../bundle.zip',
+  // uploadUrl: 'http://192.168.3.27:3000/rn/bundleUpload',
+  uploadUrl: 'http://localhost:3000/rn/bundleUpload',
 };
 
 // 一个 workSpace 对应多个 bundle
