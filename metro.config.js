@@ -8,7 +8,7 @@
 module.exports = {
   transformer: {
     getTransformOptions: async () => {
-      console.log('saul ########')
+      console.log('saul ########', this)
       return {
         transform: {
           experimentalImportSupport: false,
