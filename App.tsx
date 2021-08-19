@@ -9,7 +9,7 @@
  * @format
  */
 
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -32,12 +32,12 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 const imgSource = require('./assets/tan.png')
-const videoSource = require('./assets/video/16197.MP4')
-console.log('sal', videoSource)
+// const videoSource = require('./assets/video/16197.MP4')
+// console.log('sal', videoSource)
 
 const Section: React.FC<{
   title: string;
-}> = ({children, title}) => {
+}> = ({ children, title }) => {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
@@ -99,7 +99,7 @@ const App = (props: any) => {
           <Section title="Step One">
             <TouchableOpacity
               onPress={() => {
-                AppRegistry.runApplication('rn_sub_1', {rootTag: 999});
+                AppRegistry.runApplication('rn_sub_1', { rootTag: 999 });
               }}
               style={{
                 height: 50,

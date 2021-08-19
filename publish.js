@@ -22,7 +22,7 @@ const workSpace = {
 // 一个 workSpace 对应多个 bundle
 const bundleInfo = {
   // 业务包和开发者信息
-  bizName: 'WelecomPage',
+  biz: 'WelecomPage',
   ...workSpace,
 };
 
@@ -31,8 +31,9 @@ const pushBundleToServer = (bundle = {}) => {
   let size = fs.lstatSync(path).size
 
   const formData = {
-    bundle: fs.createReadStream(path),
+    // !!!顺序问题
     ...bundle,
+    bundle: fs.createReadStream(path),
     // 其他附属数据，如果需要
   }
 
