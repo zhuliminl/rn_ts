@@ -2,7 +2,7 @@
   "name": "rn_ts",
   "version": "0.0.1",
   "private": true,
-  "bundleFold": "bundles",
+  "bundleFold": "bundle",
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
@@ -13,7 +13,7 @@
     "clear-bundles-path": "rm -rf ../$npm_package_bundleFold",
     "bundle-android": "npx react-native bundle --entry-file index.js --platform android --dev false --bundle-output  ../$npm_package_bundleFold/android/bundle.android.js --assets-dest ../$npm_package_bundleFold/android",
     "bundle-ios": "npx react-native bundle --entry-file index.js --platform ios --dev false --bundle-output  ../$npm_package_bundleFold//ios/bundle.ios.js --assets-dest ../$npm_package_bundleFold//ios",
-    "zip-bundle": "cd .. && zip bundle.zip bundles -r",
+    "zip-bundle": "cd .. && zip bundle.zip $npm_package_bundleFold -r",
     "bundle": "yarn clear-bundles-path && yarn init-bundles-path && yarn bundle-android && yarn bundle-ios",
     "bundle-with-zip": "yarn bundle && yarn zip-bundle",
     "publish-biz": "node publish.js"
