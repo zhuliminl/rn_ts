@@ -10,10 +10,11 @@
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "init-bundles-path": "mkdir -p ../$npm_package_bundleFold/android && mkdir -p ../$npm_package_bundleFold/ios",
+    "clear-bundles-path": "rm -rf ../$npm_package_bundleFold",
     "bundle-android": "npx react-native bundle --entry-file index.js --platform android --dev false --bundle-output  ../$npm_package_bundleFold/android/bundle.android.js --assets-dest ../$npm_package_bundleFold/android",
     "bundle-ios": "npx react-native bundle --entry-file index.js --platform ios --dev false --bundle-output  ../$npm_package_bundleFold//ios/bundle.ios.js --assets-dest ../$npm_package_bundleFold//ios",
     "zip-bundle": "cd .. && zip bundle.zip bundles -r",
-    "bundle": "yarn init-bundles-path && yarn bundle-android && yarn bundle-ios",
+    "bundle": "yarn clear-bundles-path && yarn init-bundles-path && yarn bundle-android && yarn bundle-ios",
     "bundle-with-zip": "yarn bundle && yarn zip-bundle",
     "publish-biz": "node publish.js"
   },

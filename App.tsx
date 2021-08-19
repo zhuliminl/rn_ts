@@ -20,6 +20,7 @@ import {
   useColorScheme,
   View,
   AppRegistry,
+  Image
 } from 'react-native';
 
 import {
@@ -29,6 +30,8 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
+const imgSource = require('./assets/tan.png')
 
 const Section: React.FC<{
   title: string;
@@ -76,6 +79,8 @@ const App = (props: any) => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  // console.log('saul Imgs', imgSource)
+
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
@@ -83,6 +88,8 @@ const App = (props: any) => {
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <Header />
+        {/* <Image source={require('./assets/video/16197.MP4')} /> */}
+        {/* <Image source={require('./assets/tan.png')} /> */}
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
