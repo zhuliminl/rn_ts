@@ -32,6 +32,8 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 const imgSource = require('./assets/tan.png')
+const videoSource = require('./assets/video/16197.MP4')
+console.log('sal', videoSource)
 
 const Section: React.FC<{
   title: string;
