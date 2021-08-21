@@ -22,7 +22,7 @@ const workSpace = {
 // 一个 workSpace 对应多个 bundle
 const bundleInfo = {
   // 业务包和开发者信息
-  biz: 'WelecomPage',
+  biz: 'ModuleDiscover',
   ...workSpace,
 };
 
