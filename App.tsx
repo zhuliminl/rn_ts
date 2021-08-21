@@ -91,7 +91,10 @@ const App = (props: any) => {
         style={backgroundStyle}>
         <Header />
         {/* <Image source={require('./assets/video/16197.MP4')} /> */}
-        {/* <Image source={require('./assets/tan.png')} /> */}
+        <Image source={require('./assets/tan.png')} />
+        <Image source={require('./assets/2.png')} />
+        <Image source={require('./assets/3.png')} />
+
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
