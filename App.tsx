@@ -9,7 +9,7 @@
  * @format
  */
 
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -20,7 +20,7 @@ import {
   useColorScheme,
   View,
   AppRegistry,
-  Image
+  Image,
 } from 'react-native';
 
 import {
@@ -30,14 +30,17 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import Video from 'react-native-video';
 
-const imgSource = require('./assets/tan.png')
+const imgSource = require('./assets/tan.png');
+const videoUrl =
+  'http://pgc.qcdn.xiaodutv.com/624306816_602232686_20210819122010.mp4?Cache-Control%3Dmax-age-8640000%26responseExpires%3DSat%2C_27_Nov_2021_12%3A20%3A15_GMT=&xcode=16d13335c4a0299732d6bbf39616c5f96660079b9f713c27&time=1629707193&_=1629622301187';
 // const videoSource = require('./assets/video/16197.MP4')
 // console.log('sal', videoSource)
 
 const Section: React.FC<{
   title: string;
-}> = ({ children, title }) => {
+}> = ({children, title}) => {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
@@ -71,7 +74,6 @@ declare global {
 const App = (props: any) => {
   const isDarkMode = useColorScheme() === 'dark';
   useEffect(() => {
-
     return () => {
       console.log('saul LEAVE_APP');
     };
@@ -81,7 +83,8 @@ const App = (props: any) => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  // console.log('saul Imgs', imgSource)
+  console.log('saul Imgs', imgSource);
+  // console.log("VIDEO", Video)
 
   return (
     <SafeAreaView style={backgroundStyle}>
@@ -91,9 +94,17 @@ const App = (props: any) => {
         style={backgroundStyle}>
         <Header />
         {/* <Image source={require('./assets/video/16197.MP4')} /> */}
-        <Image source={require('./assets/tan.png')} />
-        <Image source={require('./assets/2.png')} />
-        <Image source={require('./assets/3.png')} />
+        <Video
+          muted={true}
+          style={{
+            height: 300,
+            width: 200,
+          }}
+          source={{uri: videoUrl}}
+        />
+        {/* <Image source={require('./assets/tan.png')} /> */}
+        {/* <Image source={require('./assets/2.png')} />
+        <Image source={require('./assets/3.png')} /> */}
 
         <View
           style={{
@@ -102,7 +113,7 @@ const App = (props: any) => {
           <Section title="Step One">
             <TouchableOpacity
               onPress={() => {
-                AppRegistry.runApplication('rn_sub_1', { rootTag: 999 });
+                AppRegistry.runApplication('rn_sub_1', {rootTag: 999});
               }}
               style={{
                 height: 50,
