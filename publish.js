@@ -5,6 +5,9 @@ const fs = require('fs');
 const _colors = require('colors');
 const request = require('request')
 const cliProgress = require('cli-progress');
+const myArgs = process.argv.slice(2)
+const biz = myArgs[0] || ''
+
 
 
 
@@ -22,7 +25,7 @@ const workSpace = {
 // 一个 workSpace 对应多个 bundle
 const bundleInfo = {
   // 业务包和开发者信息
-  biz: 'WelecomPage',
+  biz,
   ...workSpace,
 };
 

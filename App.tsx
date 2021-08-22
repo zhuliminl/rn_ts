@@ -30,8 +30,14 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+const biz = process.env['BIZ'] || 'biz'
+const BizApp = require(`./bizApps/${biz}/index`).default
 
-const imgSource = require('./assets/tan.png')
+console.log('saul ###########################', biz)
+
+
+const name = 'tan'
+const imgSource = require(`./assets/${name}.png`)
 // const videoSource = require('./assets/video/16197.MP4')
 // console.log('sal', videoSource)
 
@@ -89,9 +95,11 @@ const App = (props: any) => {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
+        <BizApp />
         <Header />
+        <Text>{biz}</Text>
         {/* <Image source={require('./assets/video/16197.MP4')} /> */}
-        {/* <Image source={require('./assets/tan.png')} /> */}
+        <Image source={imgSource} />
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,

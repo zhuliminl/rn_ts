@@ -6,17 +6,18 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
-    "start": "react-native start",
+    "start": "BIZ=ModuleDiscover react-native start --port 8082",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "init-bundles-path": "mkdir -p ../$npm_package_bundleFold/android && mkdir -p ../$npm_package_bundleFold/ios",
     "clear-bundles-path": "rm -rf ../$npm_package_bundleFold",
-    "bundle-android": "npx react-native bundle --entry-file index.js --platform android --dev false --bundle-output  ../$npm_package_bundleFold/android/bundle.android.js --assets-dest ../$npm_package_bundleFold/android",
+    "bundle-android": "BIZ=ModuleDiscover npx react-native bundle --entry-file index.js --platform android --dev false --bundle-output  ../$npm_package_bundleFold/android/bundle.android.js --assets-dest ../$npm_package_bundleFold/android",
     "bundle-ios": "npx react-native bundle --entry-file index.js --platform ios --dev false --bundle-output  ../$npm_package_bundleFold//ios/bundle.ios.js --assets-dest ../$npm_package_bundleFold//ios",
     "zip-bundle": "cd .. && zip bundle.zip $npm_package_bundleFold -r",
     "bundle": "yarn clear-bundles-path && yarn init-bundles-path && yarn bundle-android && yarn bundle-ios",
     "bundle-with-zip": "yarn bundle && yarn zip-bundle",
-    "publish-biz": "node publish.js"
+    "publish-biz": "node publish.js",
+    "publish-biz-all": "node publish.js && node publish.js && node publish.js"
   },
   "dependencies": {
     "cli-progress": "^3.9.0",
@@ -33,6 +34,7 @@
     "@types/react-native": "^0.64.5",
     "@types/react-test-renderer": "^16.9.2",
     "babel-jest": "^26.6.3",
+    "babel-plugin-transform-inline-environment-variables": "^0.4.3",
     "eslint": "^7.14.0",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.64.0",
