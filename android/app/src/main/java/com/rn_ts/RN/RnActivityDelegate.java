@@ -37,6 +37,7 @@ public class RnActivityDelegate extends ReactActivityDelegate {
     }
 
     protected ReactRootView createRootView() {
+        Log.d(TAG, "createRootView: 创建 RootView");
         return super.createRootView();
     }
 
@@ -46,7 +47,7 @@ public class RnActivityDelegate extends ReactActivityDelegate {
     }
 
     protected void loadApp(String appKey) {
-        Log.d(TAG, "loadApp: " + appKey);
+        Log.d(TAG, "loadApp: >>>>>>>>>>>>> " + appKey);
         super.loadApp(appKey);
     }
 
