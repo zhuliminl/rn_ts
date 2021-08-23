@@ -1,7 +1,8 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable semi */
 // 发布包
-const bizs = require('./constants/bizs')
+// const bizs = require('./constants/bizs')
+const bizs = require('./constants/bizsLarge')
 const { exec } = require("child_process");
 
 

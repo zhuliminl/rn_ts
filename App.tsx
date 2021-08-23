@@ -34,8 +34,6 @@ import BizApp from './BizApp'
 
 
 
-const name = 'tan'
-const imgSource = require(`./assets/${name}.png`)
 // const videoSource = require('./assets/video/16197.MP4')
 // console.log('sal', videoSource)
 
@@ -85,19 +83,18 @@ const App = (props: any) => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  console.log('saul Imgs', imgSource);
   // console.log("VIDEO", Video)
 
   return (
     <SafeAreaView style={backgroundStyle}>
       <BizApp />
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      
+      {/* <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <BizApp />
         <Header />
-        {/* <Image source={require('./assets/video/16197.MP4')} /> */}
         <Image source={imgSource} />
         <View
           style={{
@@ -127,7 +124,7 @@ const App = (props: any) => {
           </Section>
           <LearnMoreLinks />
         </View>
-      </ScrollView>
+      </ScrollView> */}
     </SafeAreaView>
   );
 };
