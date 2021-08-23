@@ -60,5 +60,6 @@ package-lock.json
 /ios/Pods/
 .yarn.lock
 bsdiff
+BizApp
 [pull]
     ff = no
