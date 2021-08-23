@@ -24,6 +24,7 @@ AppRegistry.runApplication = (appKey, appParameters) => {
 // };
 
 AppRegistry.registerComponent(appName, () => App);
+// AppRegistry.registerComponent(appName, () => () => null);
 AppRegistry.registerComponent('rn_sub_1', () => SubApp);
 
 const appKeys = AppRegistry.getAppKeys();

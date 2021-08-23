@@ -25,7 +25,11 @@ const workSpace = {
 // 一个 workSpace 对应多个 bundle
 const bundleInfo = {
   // 业务包和开发者信息
+<<<<<<< HEAD
   biz,
+=======
+  biz: 'ModuleDiscover',
+>>>>>>> 31f8027b5f685d9c87202d632073956e576d8e1b
   ...workSpace,
 };
 

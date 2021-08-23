@@ -20,7 +20,7 @@ import {
   useColorScheme,
   View,
   AppRegistry,
-  Image
+  Image,
 } from 'react-native';
 
 import {
@@ -77,7 +77,6 @@ declare global {
 const App = (props: any) => {
   const isDarkMode = useColorScheme() === 'dark';
   useEffect(() => {
-
     return () => {
       console.log('saul LEAVE_APP');
     };
@@ -87,7 +86,8 @@ const App = (props: any) => {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  // console.log('saul Imgs', imgSource)
+  console.log('saul Imgs', imgSource);
+  // console.log("VIDEO", Video)
 
   return (
     <SafeAreaView style={backgroundStyle}>

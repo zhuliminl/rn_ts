@@ -11,6 +11,7 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "init-bundles-path": "mkdir -p ../$npm_package_bundleFold/android && mkdir -p ../$npm_package_bundleFold/ios",
     "clear-bundles-path": "rm -rf ../$npm_package_bundleFold",
+<<<<<<< HEAD
     "bundle-android": "BIZ=ModuleDiscover npx react-native bundle --entry-file index.js --platform android --dev false --bundle-output  ../$npm_package_bundleFold/android/bundle.android.js --assets-dest ../$npm_package_bundleFold/android",
     "bundle-ios": "npx react-native bundle --entry-file index.js --platform ios --dev false --bundle-output  ../$npm_package_bundleFold//ios/bundle.ios.js --assets-dest ../$npm_package_bundleFold//ios",
     "zip-bundle": "cd .. && zip bundle.zip $npm_package_bundleFold -r",
@@ -18,12 +19,22 @@
     "bundle-with-zip": "yarn bundle && yarn zip-bundle",
     "publish-biz": "node publish.js",
     "publish-biz-all": "node publish.js && node publish.js && node publish.js"
+=======
+    "bundle-android": "npx react-native bundle --entry-file index.js --platform android --dev false --bundle-output  ../$npm_package_bundleFold/android/bundle.android.js --assets-dest ../$npm_package_bundleFold/android",
+    "bundle-ios": "npx react-native bundle --entry-file index.js --platform ios --dev false --bundle-output  ../$npm_package_bundleFold//ios/bundle.ios.js --assets-dest ../$npm_package_bundleFold/ios",
+    "zip-bundle": "cd .. && rm -rf bundle.zip && zip bundle.zip $npm_package_bundleFold -r",
+    "bundle": "yarn clear-bundles-path && yarn init-bundles-path && yarn bundle-android && yarn bundle-ios",
+    "bundle-with-zip": "yarn bundle && yarn zip-bundle",
+    "upload-biz": "node publish.js",
+    "publish-biz": "yarn bundle-with-zip && yarn upload-biz"
+>>>>>>> 31f8027b5f685d9c87202d632073956e576d8e1b
   },
   "dependencies": {
     "cli-progress": "^3.9.0",
     "form-data": "^3.0.1",
     "react": "17.0.1",
     "react-native": "0.64.1",
+    "react-native-video": "^5.1.1",
     "request": "^2.88.2"
   },
   "devDependencies": {
