@@ -1,5 +1,6 @@
 
 const fs = require('fs');
+var faker = require('faker');
 
 const bizConfigStr = process.argv[2];
 // console.log('hhhhhh', bizConfigStr)
@@ -10,10 +11,16 @@ const {
   desc = '',
   logoUrl = '',
   imgs = [],
+  textSize = 1
 } = bizConfig
 
 
 
+
+const textView = [...Array(textSize * 100)].map(_ => {
+  var randomName = faker.name.findName()
+  return `<Text>${randomName}</Text>`
+}).join('')
 
 
 
@@ -38,6 +45,9 @@ export default () => {
         <Text>
         ${desc}
         </Text>
+        <View>
+        ${textView}
+        </View>
       </View>
     )
 }

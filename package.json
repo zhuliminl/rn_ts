@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "cli-progress": "^3.9.0",
+    "faker": "^5.5.3",
     "form-data": "^3.0.1",
     "react": "17.0.1",
     "react-native": "0.64.1",
