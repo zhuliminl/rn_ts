@@ -17,7 +17,7 @@
     "bundle": "yarn clear-bundles-path && yarn init-bundles-path && yarn bundle-android && yarn bundle-ios",
     "bundle-with-zip": "yarn bundle && yarn zip-bundle",
     "publish-biz": "node publish.js",
-    "publish-biz-all": "node publish.js && node publish.js && node publish.js"
+    "publish-biz-all": "node publish-all.js"
   },
   "dependencies": {
     "cli-progress": "^3.9.0",

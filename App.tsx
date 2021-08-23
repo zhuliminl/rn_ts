@@ -30,10 +30,8 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-const biz = process.env['BIZ'] || 'biz'
-const BizApp = require(`./bizApps/${biz}/index`).default
+import BizApp from './BizApp'
 
-console.log('saul ###########################', biz)
 
 
 const name = 'tan'
@@ -48,6 +46,7 @@ const Section: React.FC<{
 
   return (
     <View style={styles.sectionContainer}>
+
       <Text
         style={[
           styles.sectionTitle,
@@ -91,13 +90,13 @@ const App = (props: any) => {
 
   return (
     <SafeAreaView style={backgroundStyle}>
+      <BizApp />
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
         <BizApp />
         <Header />
-        <Text>{biz}</Text>
         {/* <Image source={require('./assets/video/16197.MP4')} /> */}
         <Image source={imgSource} />
         <View

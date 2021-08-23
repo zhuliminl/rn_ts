@@ -6,7 +6,7 @@ const _colors = require('colors');
 const request = require('request')
 const cliProgress = require('cli-progress');
 const myArgs = process.argv.slice(2)
-const biz = myArgs[0] || ''
+const biz = myArgs[0] || 'My'
 
 
 
