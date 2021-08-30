@@ -1,8 +1,12 @@
 package com.rn_ts.windowCustom;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
+import android.view.View;
 import android.view.WindowManager;
 
 import com.facebook.react.bridge.NativeModule;
@@ -23,17 +27,28 @@ public class CustomWindow extends ReactContextBaseJavaModule {
 
 
     @ReactMethod
-    public void setToFull() {
-        Log.d(TAG, "setToFull: >>>>>>>>>>");
-        Activity activity = getCurrentActivity();
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            layoutParams.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
-            activity.getWindow().setAttributes(layoutParams);
-            activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-        }
+    public void setToFull(Boolean flag) {
 
+        new Handler(Looper.getMainLooper()).post(new Runnable(){
+            @Override
+            public void run() {
+                Activity activity = getCurrentActivity();
+                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+                    WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+                    layoutParams.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
+                    if(flag) {
+                        activity.getWindow().getAttributes().layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
+
+                        activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                        activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+                    } else {
+                        activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                        activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+                    }
+                }
+
+            }
+        });
     }
 
     @Override

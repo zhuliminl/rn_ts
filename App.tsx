@@ -9,7 +9,8 @@
  * @format
  */
 
-import React, { useEffect } from 'react';
+import React, {useEffect} from 'react';
+import Orientation from 'react-native-orientation';
 import {
   SafeAreaView,
   ScrollView,
@@ -21,6 +22,7 @@ import {
   View,
   AppRegistry,
   Image,
+  NativeModules,
 } from 'react-native';
 
 import {
@@ -30,21 +32,18 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import BizApp from './BizApp'
-
-
+// import BizApp from './BizApp'
 
 // const videoSource = require('./assets/video/16197.MP4')
 // console.log('sal', videoSource)
 
 const Section: React.FC<{
   title: string;
-}> = ({ children, title }) => {
+}> = ({children, title}) => {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
     <View style={styles.sectionContainer}>
-
       <Text
         style={[
           styles.sectionTitle,
@@ -74,44 +73,91 @@ declare global {
 const App = (props: any) => {
   const isDarkMode = useColorScheme() === 'dark';
   useEffect(() => {
+    // Orientation.lockToLandscape();
     return () => {
       console.log('saul LEAVE_APP');
     };
   }, []);
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
+    // backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
   // console.log("VIDEO", Video)
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <BizApp />
-      
-      {/* <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+    <View style={{flex: 1, backgroundColor: 'yellow'}}>
+      {/* <BizApp /> */}
+      {/* <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} /> */}
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <BizApp />
-        <Header />
-        <Image source={imgSource} />
+        // style={backgroundStyle}
+        >
+        {/* <BizApp /> */}
+        {/* <Header /> */}
         <View
           style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
+            // backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Section title="Step One">
-            <TouchableOpacity
-              onPress={() => {
-                AppRegistry.runApplication('rn_sub_1', { rootTag: 999 });
-              }}
+            <View
               style={{
-                height: 50,
                 width: '100%',
-                backgroundColor: '#999',
+                height: 300,
               }}>
-              <Text>打开另外一个 RN </Text>
-            </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  console.log(
+                    'saul ###333',
+                    NativeModules.CustomWindow.setToFull(true),
+                  );
+                  // AppRegistry.runApplication('rn_sub_1', { rootTag: 999 });
+                }}
+                style={{
+                  height: 100,
+                  width: 200,
+                  backgroundColor: '#EEE',
+                }}>
+                <Text>顶开 </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  console.log(
+                    'saul ###333',
+                    NativeModules.CustomWindow.setToFull(false),
+                  );
+                  // AppRegistry.runApplication('rn_sub_1', { rootTag: 999 });
+                }}
+                style={{
+                  height: 50,
+                  width: 100,
+                  backgroundColor: 'green',
+                }}>
+                <Text>收起 </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  Orientation.lockToLandscape();
+                }}
+                style={{
+                  height: 50,
+                  width: 100,
+                  backgroundColor: 'green',
+                }}>
+                <Text>横屏</Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  Orientation.lockToPortrait();
+                }}
+                style={{
+                  height: 50,
+                  width: 100,
+                  backgroundColor: 'green',
+                }}>
+                <Text>竖屏</Text>
+              </TouchableOpacity>
+            </View>
           </Section>
           <Section title="See Your Changes">
             <ReloadInstructions />
@@ -124,8 +170,8 @@ const App = (props: any) => {
           </Section>
           <LearnMoreLinks />
         </View>
-      </ScrollView> */}
-    </SafeAreaView>
+      </ScrollView>
+    </View>
   );
 };
 
