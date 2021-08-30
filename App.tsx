@@ -83,7 +83,6 @@ const App = (props: any) => {
     // backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
-  // console.log("VIDEO", Video)
 
   return (
     <View style={{flex: 1, backgroundColor: 'yellow'}}>
