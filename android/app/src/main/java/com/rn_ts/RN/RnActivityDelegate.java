@@ -28,7 +28,7 @@ public class RnActivityDelegate extends ReactActivityDelegate {
         Intent intent = rnActivity.getIntent();
 //        Bundle  launchOptions = new Bundle();
         Bundle  launchOptions = intent.getExtras();
-        launchOptions.putString("version", "5.502");
+        launchOptions.putString("version", "5.xiaoshitou");
         return launchOptions;
     }
 

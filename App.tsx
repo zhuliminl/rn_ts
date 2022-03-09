@@ -21,10 +21,12 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import ImagePicker from 'react-native-image-crop-picker';
 import BizApp from './BizApp';
 
 const App = (props: any) => {
   const isDarkMode = useColorScheme() === 'dark';
+
   useEffect(() => {
     // Orientation.lockToLandscape();
     return () => {
@@ -34,7 +36,27 @@ const App = (props: any) => {
 
   return (
     <View style={{flex: 1}}>
-      <BizApp />
+      <TouchableOpacity
+        onPress={async () => {
+          try {
+            const data = await ImagePicker.openPicker({
+              mediaType: 'video',
+              // mediaType: 'image'
+            });
+            console.log('saul lllllllllllllllllll', data)
+          } catch (error) {
+            console.log('saul EEEEEEEEEE', error);
+          }
+        }}
+        style={{
+          height: 300,
+          width: 200,
+          backgroundColor: 'red',
+        }}>
+        <Text>点击获取视频</Text>
+      </TouchableOpacity>
+
+      {/* <BizApp /> */}
     </View>
   );
 };
