@@ -1,5 +1,6 @@
+/* eslint-disable */
+
 import React, {useEffect} from 'react';
-import Orientation from 'react-native-orientation';
 import {
   SafeAreaView,
   ScrollView,
@@ -12,51 +13,43 @@ import {
   AppRegistry,
   Image,
   NativeModules,
+  requireNativeComponent,
+  UIManager,
+  findNodeHandle,
 } from 'react-native';
-
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-import ImagePicker from 'react-native-image-crop-picker';
-import BizApp from './BizApp';
+import NativeImage from './NativeComponent/MyImage';
 
 const App = (props: any) => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  useEffect(() => {
-    // Orientation.lockToLandscape();
-    return () => {
-      console.log('saul LEAVE_APP');
-    };
-  }, []);
-
   return (
     <View style={{flex: 1}}>
-      <TouchableOpacity
-        onPress={async () => {
-          try {
-            const data = await ImagePicker.openPicker({
-              mediaType: 'video',
-              // mediaType: 'image'
-            });
-            console.log('saul lllllllllllllllllll', data)
-          } catch (error) {
-            console.log('saul EEEEEEEEEE', error);
-          }
+      <Text>oo</Text>
+      <NativeImage 
+        _onImagePress={e => {
+          console.log('saul >>>>>>>>>>>>',e.nativeEvent)
         }}
+        title="xxxj"
+        backgroundC={"#EEEEEE"}
+        borderRadius={100}
+        // titleName="saulName"
+        // titleDesc="saulDesc"
+        // source={{uri: 'https://c-ssl.duitang.com/uploads/item/202004/17/20200417121646_crtyi.jpg'}}
+        imageUrl={"https://c-ssl.duitang.com/uploads/item/202004/17/20200417121646_crtyi.jpg"}
         style={{
-          height: 300,
+          height: 200,
           width: 200,
-          backgroundColor: 'red',
-        }}>
-        <Text>点击获取视频</Text>
-      </TouchableOpacity>
-
-      {/* <BizApp /> */}
+          backgroundColor: '#000',
+        }}
+      />
+      <Image
+        style={{
+          height: 200,
+          width: 200,
+          backgroundColor: '#999',
+        }}
+        source={{
+          uri: 'https://c-ssl.duitang.com/uploads/item/202004/17/20200417121646_crtyi.jpg',
+        }}
+      />
     </View>
   );
 };

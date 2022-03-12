@@ -6,12 +6,11 @@ import android.util.Log;
 
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
-import com.reactnative.ivpusic.imagepicker.PickerPackage;
-import com.brentvatne.react.ReactVideoPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
+import com.rn_ts.com.MyImagePackage;
 import com.rn_ts.windowCustom.WindowCustomPackage;
 
 import java.lang.reflect.InvocationTargetException;
@@ -34,7 +33,8 @@ public class MainApplication extends Application implements ReactApplication {
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // packages.add(new MyReactNativePackage());
              packages.add(new WindowCustomPackage());
-          return packages;
+             packages.add(new MyImagePackage());
+            return packages;
         }
 
         @Override
@@ -47,6 +47,7 @@ public class MainApplication extends Application implements ReactApplication {
   public ReactNativeHost getReactNativeHost() {
     return mReactNativeHost;
   }
+
 
   @Override
   public void onCreate() {
